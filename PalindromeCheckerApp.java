@@ -1,20 +1,26 @@
-public class PalindromeCheckerApp {
+public class UseCase2PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        System.out.println("=================================");
-        System.out.println(" Palindrome Checker System ");
-        System.out.println("=================================");
-        System.out.println("Welcome to the Application!");
-        System.out.println("Version: 1.0");
-        System.out.println("System initialized successfully.");
-        
-        // if the user provided text arguments, show them as examples
-        if (args.length > 0) {
-            System.out.println("\nInput arguments:");
-            for (String arg : args) {
-                System.out.println("  " + arg);
+        String text = "madam";
+        boolean isPalindrome = true;
+
+        int left = 0;
+        int right = text.length() - 1;
+
+        while (left < right) {
+            if (text.charAt(left) != text.charAt(right)) {
+                isPalindrome = false;
+                break;
             }
+            left++;
+            right--;
+        }
+
+        if (isPalindrome) {
+            System.out.println(text + " is a palindrome.");
+        } else {
+            System.out.println(text + " is not a palindrome.");
         }
     }
 }
