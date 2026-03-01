@@ -1,21 +1,20 @@
-public class UseCase4PalindromeCheckerApp {
-    public static void main(String[] args) {
-        String input = "racecar";
-        char[] chars = input.toCharArray();
-        int start = 0;
-        int end = chars.length - 1;
-        boolean isPalindrome = true;
+import java.util.Stack;
 
-        while (start < end) {
-            if (chars[start] != chars[end]) {
-                isPalindrome = false;
-                break;
-            }
-            start++;
-            end--;
+public class UseCase5PalindromeCheckerApp {
+    public static void main(String[] args) {
+        String input = "level";
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : input.toCharArray()) {
+            stack.push(c);
         }
 
-        if (isPalindrome) {
+        String reversed = "";
+        while (!stack.isEmpty()) {
+            reversed += stack.pop();
+        }
+
+        if (input.equals(reversed)) {
             System.out.println(input + " is a palindrome.");
         } else {
             System.out.println(input + " is not a palindrome.");
